@@ -37,7 +37,8 @@ distance_data = distance(df)
 # Defining a function for measuring distance between two locations
 def distance(origin, destination):
     """
-    Calculate the Haversine distance.
+    Calculate the Haversine distance in miles.
+    
     Parameters
     ----------
     origin : tuple of float
@@ -58,7 +59,8 @@ def distance(origin, destination):
     """
     lat1, lon1 = origin
     lat2, lon2 = destination
-    radius = 6371  # km
+    radius = 3959  # change radius value to 6371 for distance in kilometer.
+    # Note: some algorithms use radious = 3956 or 6367 for mile or kilometer, respectively.
     dlat = math.radians(lat2 - lat1)
     dlon = math.radians(lon2 - lon1)
     a = (math.sin(dlat / 2) * math.sin(dlat / 2) +
@@ -67,7 +69,7 @@ def distance(origin, destination):
     c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
     d = radius * c
     return d
-
+    
 #-------Applying the distance() function to the distance_data------------------ 
 
 # combining the latitude and longitude of each location to a tuple and putting
