@@ -17,7 +17,7 @@ df = pd.read_csv('dataset.csv')
 def distance(df):
     green = df[df['green']==1]
     nongreen = df[df['green']==0]
-    cols = ['green_zip', 'green_latitude', 'green_longitude','nongreen_zip','nongreen_latitude','nongreen_longitude']
+    cols = ['zip_code', 'green_latitude', 'green_longitude','nongreen_latitude','nongreen_longitude']
     lists = []
     for index1, row1 in green.iterrows():
         for index2, row2 in nongreen.iterrows():
@@ -28,7 +28,7 @@ def distance(df):
                 nongreen_zip = row2['zip_code']
                 nongreen_latitude = row2['latitude']
                 nongreen_longitude = row2['longitude']
-                lists.append([green_zip,green_latitude,green_longitude,nongreen_zip, nongreen_latitude,nongreen_longitude])                
+                lists.append([green_zip,green_latitude,green_longitude, nongreen_latitude,nongreen_longitude])                
     df1 = pd.DataFrame(lists, columns=cols)
     return df1
 
