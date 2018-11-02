@@ -80,7 +80,5 @@ distance_data['nongreen_coords']=distance_data[['nongreen_latitude',
              'nongreen_longitude']].apply(tuple, axis=1)
 
 # Measuring distances between the green and nongreen hotels.
-distance_data['distance']=None
-for i in range(len(distance_data)):
-    distance_data.loc[i,'distance'] = (distance(distance_data['green_coords'][i], 
-                     distance_data['nongreen_coords'][i]))
+distance_data['distance']=[distance(distance_data['green_coords'][i],
+              distance_data['nongreen_coords'][i]) for i in range(len(distance_data))]
