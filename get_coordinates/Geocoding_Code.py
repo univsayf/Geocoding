@@ -1,4 +1,5 @@
 # Import necessary modules:
+import time
 import pandas as pd
 import googlemaps # make sure you install the googlemaps module if you have not done so yet. 
 
@@ -25,7 +26,9 @@ for i in range (len(df)):
         df.loc[i,'Lon'] = lng
     except: 
         lat = None
-        lng = None 
+        lng = None
+    if i%10==0:
+        time.sleep(2) 
         
 print (df)
         
