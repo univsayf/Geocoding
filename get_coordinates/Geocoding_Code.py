@@ -29,6 +29,12 @@ for i in range (len(df)):
         lng = None
     if i%10==0:
         time.sleep(2) 
+    '''
+    if you want to break the loop at i'th index add the following two lines:
+
+    if i==1200:
+        break
+    '''
         
 print (df)
         
